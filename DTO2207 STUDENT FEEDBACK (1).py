@@ -1,3 +1,6 @@
+DIMENSION_LOWER_LIMIT = 5
+DIMENSION_UPPER_LIMIT = 100
+
 BELOW_6000_BASE_RATE = 8.00
 ABOVE_100000_BASE_RATE = 15.00
 IN_BETWEEN_BASE_RATE = 12.00
@@ -19,9 +22,9 @@ def box_dimension(name, dimension):
             side_length = float(input(f"\nHi {name}, please enter the {dimension} of the box, in centimetres, that you will return the product in. All values will be rounded to 2 decimal points.\n>> "))
             if side_length <= 0:
                 print("This value is not possible for a side length.\n")
-            elif side_length < 5 and side_length > 0:
+            elif side_length < DIMENSION_LOWER_LIMIT and side_length > 0:
                 print(f"The box's {dimension} must be greater than 5cm.\n")
-            elif side_length > 100:
+            elif side_length > DIMENSION_UPPER_LIMIT:
                 print(f"The box's {dimension} must be less than 100cm.\n")
             else:
                 break
